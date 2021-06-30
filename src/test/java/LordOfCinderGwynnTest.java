@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class LordOfCinderGwynn {
+public class LordOfCinderGwynnTest {
     protected static WebDriver driver;
-    private Logger logger = LogManager.getLogger(LordOfCinderGwynn.class);
+    private Logger logger = LogManager.getLogger(LordOfCinderGwynnTest.class);
 
     @BeforeEach
     public void setUp() {
