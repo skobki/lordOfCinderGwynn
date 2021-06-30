@@ -1,2 +1,2 @@
-# lordOfCinderGwynn
+# LordOfCinderGwynn
 homework 1
