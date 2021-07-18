@@ -19,14 +19,17 @@ public class WebDriverFactory {
                 ChromeOptions optionsChrome = new ChromeOptions();
                 //5.1. Стратегия загрузки страницы: NORMAL/EAGER/NONE
                 switch (strategyName) {
-                    default:
-                        throw new RuntimeException("Неправильное имя стратегии загрузки страницы: используйте NORMAL/EAGER/NONE");
                     case "NORMAL":
                         optionsChrome.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+                        break;
                     case "EAGER":
                         optionsChrome.setPageLoadStrategy(PageLoadStrategy.EAGER);
+                        break;
                     case "NONE":
                         optionsChrome.setPageLoadStrategy(PageLoadStrategy.NONE);
+                        break;
+                    default:
+                        throw new RuntimeException("Неправильное имя стратегии загрузки страницы: используйте NORMAL/EAGER/NONE");
                 }
                 //5.2. Настройка поведения алертов: DISMISS/ACCEPT/ACCEPT_AND_NOTIFY/DISMISS_AND_NOTIFY/IGNORE
                 optionsChrome.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.ACCEPT);
@@ -42,14 +45,17 @@ public class WebDriverFactory {
                 FirefoxOptions optionsFirefox = new FirefoxOptions();
                 //5.1.
                 switch (strategyName) {
-                    default:
-                        throw new RuntimeException("Неправильное имя стратегии загрузки страницы: используйте NORMAL/EAGER/NONE");
                     case "NORMAL":
                         optionsFirefox.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+                        break;
                     case "EAGER":
                         optionsFirefox.setPageLoadStrategy(PageLoadStrategy.EAGER);
+                        break;
                     case "NONE":
                         optionsFirefox.setPageLoadStrategy(PageLoadStrategy.NONE);
+                        break;
+                    default:
+                        throw new RuntimeException("Неправильное имя стратегии загрузки страницы: используйте NORMAL/EAGER/NONE");
                 }
                 //5.2.
                 optionsFirefox.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.DISMISS);

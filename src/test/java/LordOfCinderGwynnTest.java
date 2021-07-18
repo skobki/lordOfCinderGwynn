@@ -40,13 +40,8 @@ public class LordOfCinderGwynnTest {
     public void openPage() {
         driver.get("https://www.dns-shop.ru/");
         logger.info("Открыта страница DNS - " + "https://www.dns-shop.ru/");
-        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS); //Не работает
         //Ожидание загрузки страницы
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
         //Вывод title
         String title = driver.getTitle();
         logger.info("Заголовок страницы - " + title.toString());
@@ -59,11 +54,6 @@ public class LordOfCinderGwynnTest {
         //Переходим в категорию "Бытовая техника"
         WebElement searchUrl = driver.findElement(By.partialLinkText("Бытовая"));
         searchUrl.click();
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         //Вывод списка всех подкатегорий в категории "Бытовая техника"
         logger.info("-----------------------");
         logger.info("Вывод категорий:");
