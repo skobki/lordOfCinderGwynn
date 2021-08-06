@@ -6,13 +6,21 @@ import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.*;
+import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class WebDriverFactory {
     private static final Logger logger = LogManager.getLogger(WebDriverFactory.class);
     public static WebDriver getDriver(String browserName, String strategyName) {
+        WebDriverManager.edgedriver().setup();
+        EdgeOptions op = new EdgeOptions();
+        op.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         switch (browserName) {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
@@ -62,7 +70,7 @@ public class WebDriverFactory {
                 //5.3.
                 optionsFirefox.setCapability(CapabilityType.SUPPORTS_JAVASCRIPT, true);
                 //5.4.
-                optionsFirefox.addArguments("-kiosk");
+                //optionsFirefox.addArguments("-kiosk");
                 //Запущенный с аргументом -private, Firefox не покажет все куки страницы
                 optionsFirefox.addArguments("-private");
                 logger.info("Драйвер для Mozilla Firefox");
